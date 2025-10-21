@@ -3,17 +3,15 @@ import { bot } from "@/lib/bot";
 
 const handleUpdate = webhookCallback(bot, "std/http");
 
-export async function POST(request: Request) {
+export async function POST(req: Request) {
   try {
-    return await handleUpdate(request);
+    return await handleUpdate(req);
   } catch (err) {
     console.error("Webhook error:", err);
-    return new Response("Internal Server Error", { status: 500 });
+    return new Response("Error handling update", { status: 500 });
   }
 }
 
 export function GET() {
-  return new Response("This endpoint is for Telegram Webhook (POST only).", {
-    status: 405,
-  });
+  return new Response("✅ Bot webhook is up!", { status: 200 });
 }
