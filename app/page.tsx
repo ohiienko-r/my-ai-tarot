@@ -1,5 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
+import { init, backButton } from "@tma.js/sdk-react";
+init();
 
 export default function Page() {
   const [user, setUser] = useState<string>("");
